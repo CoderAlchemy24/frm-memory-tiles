@@ -1,0 +1,567 @@
+*{
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: var(--grey-50);
+}
+
+.solo-player-board,
+  .multi-player-board{
+    margin: 12px 24px;
+    padding: 10px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+  }
+
+header {
+    
+    height:52px;
+    width: calc(100vw -48px);
+    margin: 24px auto;
+    background-color: var(--grey-50);
+   
+    gap: 40vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+
+.btns{
+    height:auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+  
+}
+
+
+
+button{
+  
+    height: 52px;
+    
+    border: none;
+    font-size:20px;
+   
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-weight: 700;
+
+    
+}
+
+button:hover{
+    background-color: var(--blue-350);
+}
+
+.restart-btn{
+    width:127px;
+    background-color: var(--orange-400);
+    color: var(--grey-50);
+
+}
+
+button.active{
+    background-color: var(--orange-400);
+    color: var(--grey-50);
+}
+
+.new-game-btn{
+   width:149px;
+    background-color: var(--blue-100);
+    color: var(--blue-800);
+}
+
+
+.cards4x4{
+    margin: 50px auto 20px;
+    height:544px;  
+    width: 544px;
+
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(4, 120px);
+    grid-template-rows: repeat(4, 120px);
+    gap: 16px;
+
+    background-color: var(--grey-50);
+}
+
+.cards6x6 {
+    width:572px;
+    height:572px;
+    margin:50px auto 20px ;
+    padding: 20px 10px ;
+     display: grid;
+    grid-template-columns: repeat(6, 90px);
+    grid-template-rows: repeat(6, 90px);
+   
+    gap:16px;
+  
+    background-color: var(--grey-50);
+}
+
+
+ .card{
+    width:102px;
+    height:102px;
+    background-color: var(--blue-800);
+    color: var(--blue-800);
+    border:none;
+    border-radius: 50%;
+    padding: 8px;
+    font-size: 64px;
+    margin:0;
+     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.cards4x4 > .card{
+    width: 116px;
+    height: 116px;
+    gap: 24px;
+    font-size: 56px;
+}
+
+
+
+.cards6x6 > .card{  /* 82px */
+    width: 102px;
+    height: 102px;
+    gap: 16px
+}
+
+.selected-card{
+    background-color: var(--blue-300);
+    color: var(--grey-50);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.clicked-card{
+    background-color: var(--orange-400);
+    font-size: 44px;
+    color: var(--grey-50);
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.iconcard{
+   
+    background-color: var(--blue-800);
+    fill: var(--blue-800);
+    
+    border:none;
+    border-radius: 50%;
+    margin: 12px;
+   
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.cards4x4 > .iconcard{
+    width: 116px;
+    height: 116px;
+    gap: 16px;
+    font-size: 56px;
+}
+
+.cards6x6 > .iconcard{
+    width: 102px;
+    height: 102px;
+    gap: 16px;
+    font-size: 56px;
+}
+
+
+
+.card img{
+    display: none;
+}
+
+.card img.selected-iconcard,
+.card img.clicked-iconcard{
+    display: flex;
+}
+
+.selected-iconcard{
+    background-color: var(--blue-300);
+    color: var(--grey-50);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.clicked-iconcard{
+    background-color: var(--orange-400);
+    font-size: 44px;
+    color: var(--grey-50);
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.info4x4{
+    width:50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:4%;
+    height: 72px;
+    background-color: var(--grey-50);
+    margin:12px auto;
+    padding: 55px;
+
+
+}
+
+.time4x4, .moves4x4{
+    width:110px;
+    margin: 20px auto;
+    background-color: var(--blue-100);
+    color: var(--blue-800);
+    border-radius:10px;
+
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+.time-label4x4, .moves-label4x4{
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-weight: 700;
+    font-size:18px;
+    color: var(--blue-400);
+    padding:25px;
+}
+
+.time-count4x4, .moves-count4x4{
+    font-size:32px;
+    color: var(--blue-800);
+    padding:25px 6px;
+}
+
+.solo-results{
+    width:55%;
+    margin: 40px auto;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+    gap:12px;
+}
+
+.result-time, .result-moves{
+   
+    width:120px;
+    height: 72px;
+    background-color: var(--blue-100);
+    color: var(--blue-800);
+    border-radius:10px;
+}
+/* 
+
+ @media (max-width: 600px) {
+
+ 
+  .restart-btn{
+    display: none;
+  }
+
+  .btns{
+    margin-right: 5px;
+    padding-right: 0px;
+  }
+
+  .cards4x4{
+       margin:12px auto;
+        width: clamp(275px, 70vw, 320px);
+        height: auto;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 4px;
+    }
+
+  .cards6x6 {
+       margin: 12px auto;
+        width: clamp(275px, 80vw, 320px);
+        height: auto;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        gap: 4px;
+    }
+
+main{ margin: 12px auto;}
+
+
+.cards4x4 > .card,
+ .cards4x4 > .iconcard{
+    width: 72px;
+    height: 72px;
+    font-size: 40px;
+    gap: 16px;
+}
+
+.cards6x6 > .card,
+ .cards6x6 > .iconcard{
+    width: 54px;
+    height: 54px;
+    font-size: 40px;
+    gap: 16px
+}
+
+  .info4x4 {
+    margin: 12px auto;
+    width: calc(100vw - 24px);
+    gap: 1.5vw;
+    height: auto;
+    padding: 1.2vw;
+    box-sizing: border-box;
+  }
+
+
+
+  footer {
+
+    width: calc(100vw - 24px);
+    height: auto;
+    gap: 4vw;
+    flex-direction: column;
+    display: flex;
+    margin: 12px auto;
+  
+    box-sizing: border-box;
+  }
+
+  footer .players-panel {
+   
+    margin: 12px auto;
+  }
+
+  .solo-results{
+    width: calc(100vw - 24px);
+    flex-direction: column;
+    gap: 8px;
+    margin: 20px auto;
+  }
+} 
+ */
+
+/* Laptop breakpoint — középre igazítás */
+@media (max-width: 1200px) {
+
+  .solo-player-board,
+  .multi-player-board{
+    margin: 12px 24px;
+    padding: 10px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header, main, footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100vw - 48px);
+    text-align: center;
+  }
+
+  header{
+    margin: 24px auto;
+  }
+
+  main {
+    margin: 24px auto;
+  }
+
+  footer {
+    margin: 24px auto;
+  }
+}
+
+/* Tablet breakpoint — függőleges elrendezésnél is középre */
+@media (max-width: 900px) {
+ 
+  .solo-player-board,
+  .multi-player-board{
+    margin: 12px 24px;
+    padding: 10px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  header, main, footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  header {
+    margin: 18px auto;
+    padding: 0 12px;
+     gap: 48%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: calc(100vw - 64px);
+    box-sizing: border-box;
+  }
+
+  main {
+    margin: 18px auto;
+    padding: 0 12px;
+  }
+
+  footer {
+    margin: 18px auto;
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .solo-player-board,
+  .multi-player-board{
+    margin: 12px 24px;
+    padding: 10px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header {
+    margin: 12px auto;
+    gap: 15vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: calc(100vw - 64px);
+    box-sizing: border-box;
+  }
+
+  .restart-btn{
+    display: none;
+  }
+
+  .btns{
+    margin-right: 0;
+    padding-right: 0;
+    justify-content: center;
+  }
+
+  .cards4x4{
+       margin:12px auto;
+        width: clamp(275px, 70vw, 320px);
+        height: auto;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 4px;
+    }
+
+  .cards6x6 {
+       margin: 12px auto;
+        width: clamp(275px, 80vw, 320px);
+        height: auto;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        gap: 4px;
+    }
+
+  main{
+    margin: 12px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100vw - 64px);
+    box-sizing: border-box;
+  }
+
+  .cards4x4 > .card,
+  .cards4x4 > .iconcard{
+    width: 72px;
+    height: 72px;
+    font-size: 40px;
+    gap: 16px;
+  }
+
+  .cards6x6 > .card,
+  .cards6x6 > .iconcard{
+    width: 54px;
+    height: 54px;
+    font-size: 40px;
+    gap: 16px
+  }
+
+  .info4x4 {
+    margin: 12px auto;
+    width: calc(100vw - 64px);
+    height: auto;
+   
+   
+  }
+
+  footer {
+    width: calc(100vw - 64px);
+     margin: 12px auto;
+    height: auto;
+    gap: 4vw;
+    flex-direction: column;
+    display: flex;
+   
+    justify-content: center;
+    align-items: center;
+   
+  }
+
+  footer .players-panel {
+    margin: 12px auto;
+  }
+
+  .solo-results{
+    width: calc(100vw - 64px);
+    flex-direction: column;
+    gap: 8px;
+    margin: 12px auto;
+  }
+}
